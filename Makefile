@@ -26,7 +26,7 @@ LDFLAGS := -X "main.Version=$(shell git describe --tags --always | sed 's/-/+/' 
 PACKAGES ?= $(filter-out code.gitea.io/gitea/integrations,$(shell $(GO) list ./... | grep -v /vendor/))
 SOURCES ?= $(shell find . -name "*.go" -type f)
 
-TAGS ?=
+TAGS ?= bindata sqlite
 
 TMPDIR := $(shell mktemp -d 2>/dev/null || mktemp -d -t 'gitea-temp')
 
